@@ -9,14 +9,14 @@
     <div >
         <mat-form-field class="a">
         <mat-label class="b">Service Category</mat-label>
-        <input matInput  placeholder="...." formControlName="category">
+        <input matInput required placeholder="...." formControlName="category">
        </mat-form-field></div>
     <div>
 
         <div >
             <mat-form-field class="a">
             <mat-label class="b">Service Code</mat-label>
-            <input matInput  placeholder="...."formControlName="serviceCode" >
+            <input matInput required placeholder="...."formControlName="serviceCode" >
            </mat-form-field></div>
         <div>
 
@@ -24,19 +24,19 @@
                 <div class="col-sm-4">
                     <mat-form-field class="a">
                     <mat-label class="b">ClientID</mat-label>
-                    <input matInput  placeholder="...."formControlName="clientId">
+                    <input matInput required placeholder="...."formControlName="clientId">
                    </mat-form-field></div>
                 
                     <div class="col-sm-4" >
                     <mat-form-field class="a">
                     <mat-label class="b">LocationId</mat-label>
-                    <input matInput  placeholder="...."formControlName="locationId" >
+                    <input matInput required placeholder="...."formControlName="locationId" >
                    </mat-form-field></div>
                 
                     <div class="col-sm-4" >
                     <mat-form-field class="a">
                     <mat-label class="b">VahicleId</mat-label>
-                    <input matInput  placeholder="...." formControlName="vehicleId">
+                    <input matInput required placeholder="...." formControlName="vehicleId">
                    </mat-form-field></div>
                 
             </div>
@@ -51,14 +51,14 @@
                    <div class="col-sm-6" >
                     <mat-form-field class="a">
                     <mat-label class="b">Interval Time</mat-label>
-                    <input type="time" matInput  placeholder="...." formControlName="intervalTime">
+                    <input type="time" matInput required placeholder="...." formControlName="intervalTime">
                    </mat-form-field>
                 </div>
             </div>
                 <div >
                     <mat-form-field class="a">
                     <mat-label class="b">Description</mat-label>
-                    <input matInput  required placeholder="description..." name="description" formControlName="description" >
+                    <input matInput required required placeholder="description..." name="description" formControlName="description" >
                    </mat-form-field></div>
                 
 
@@ -66,7 +66,7 @@
                     <div >
                         <mat-form-field class="a">
                         <mat-label class="b">Name</mat-label>
-                        <input matInput  placeholder="...." formControlName="name">
+                        <input matInput required placeholder="...." formControlName="name">
                        </mat-form-field></div>
                     
 <div class="row">
@@ -74,14 +74,14 @@
     <div class="col-sm-6" >
         <mat-form-field class="a">
         <mat-label class="b">Day Charge</mat-label>
-        <input matInput  placeholder="...." formControlName="dayCharge" >
+        <input matInput required placeholder="...." formControlName="dayCharge" >
        </mat-form-field></div>
     
 
         <div  class="col-sm-6">
             <mat-form-field class="a">
             <mat-label class="b">Night Charge</mat-label>
-            <input matInput   placeholder="...." formControlName="nightCharge" >
+            <input matInput  required placeholder="...." formControlName="nightCharge" >
            </mat-form-field></div>
 </div>
                             
@@ -93,5 +93,5 @@
                                     <input matInput  placeholder="...." formControlName="tax">
                                    </mat-form-field></div>
                                 <div>
-    <button mat-raised-button color="primary"  >Submit</button>
+    <button mat-raised-button [disabled]="!service.valid" color="primary"  >Submit</button>
 </div>
