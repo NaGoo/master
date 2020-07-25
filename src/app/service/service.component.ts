@@ -11,17 +11,17 @@ export class ServiceComponent implements OnInit {
   constructor() { }
   service=new FormGroup({
     category : new FormControl('',Validators.required),
-    serviceCode : new FormControl('',Validators.required),
-    clientId : new FormControl('',Validators.required),
-    locationId : new FormControl('',Validators.required),
-    vehicleId : new FormControl('',Validators.required),
+    serviceCode : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
+    clientId : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
+    locationId : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
+    vehicleId : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
     leadTime : new FormControl('',Validators.required),
     intervalTime : new FormControl('',Validators.required),
     description : new FormControl('',Validators.required),
     name : new FormControl('',Validators.required),
-    dayCharge : new FormControl('',Validators.required),
-    nightCharge : new FormControl('',Validators.required),
-    tax : new FormControl('',Validators.required),
+    dayCharge : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
+    nightCharge : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
+    tax : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
     displayToCustomer : new FormControl('',Validators.required)})
 
   ngOnInit(): void {
