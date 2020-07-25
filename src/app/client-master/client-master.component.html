@@ -1,0 +1,18 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+<p>
+    <mat-toolbar class="c" >
+      <span>Readyassist</span>
+    </mat-toolbar>
+  </p>
+  
+  <form class="container"  [formGroup]="client" (ngSubmit)=onSubmit(client.value)>
+    <div class="jumpotron">
+        <mat-form-field class="a">
+        <mat-label class="b">Name</mat-label>
+        <input matInput required placeholder="Enter your Name..." formControlName="name">
+       </mat-form-field>
+    <div>
+        <div>
+            <button mat-raised-button  color="primary"  >Submit</button>
+        </div>
+        
