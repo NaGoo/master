@@ -1,0 +1,97 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+<p>
+    <mat-toolbar class="c" >
+      <span>Readyassist</span>
+    </mat-toolbar>
+  </p>
+  
+  <form class="container"  [formGroup]="service" (ngSubmit)=onSubmit(service.value)>
+    <div >
+        <mat-form-field class="a">
+        <mat-label class="b">Service Category</mat-label>
+        <input matInput  placeholder="...." formControlName="category">
+       </mat-form-field></div>
+    <div>
+
+        <div >
+            <mat-form-field class="a">
+            <mat-label class="b">Service Code</mat-label>
+            <input matInput  placeholder="...."formControlName="serviceCode" >
+           </mat-form-field></div>
+        <div>
+
+            <div class="row" >
+                <div class="col-sm-4">
+                    <mat-form-field class="a">
+                    <mat-label class="b">ClientID</mat-label>
+                    <input matInput  placeholder="...."formControlName="clientId">
+                   </mat-form-field></div>
+                
+                    <div class="col-sm-4" >
+                    <mat-form-field class="a">
+                    <mat-label class="b">LocationId</mat-label>
+                    <input matInput  placeholder="...."formControlName="locationId" >
+                   </mat-form-field></div>
+                
+                    <div class="col-sm-4" >
+                    <mat-form-field class="a">
+                    <mat-label class="b">VahicleId</mat-label>
+                    <input matInput  placeholder="...." formControlName="vehicleId">
+                   </mat-form-field></div>
+                
+            </div>
+
+            <div class="row">
+                <div  class="col-sm-6">
+                    <mat-form-field class="a">
+                    <mat-label class="b">Lead Time</mat-label>
+                    <input  type="time" required matInput  placeholder="...." formControlName="leadTime">
+                   </mat-form-field>
+                </div>
+                   <div class="col-sm-6" >
+                    <mat-form-field class="a">
+                    <mat-label class="b">Interval Time</mat-label>
+                    <input type="time" matInput  placeholder="...." formControlName="intervalTime">
+                   </mat-form-field>
+                </div>
+            </div>
+                <div >
+                    <mat-form-field class="a">
+                    <mat-label class="b">Description</mat-label>
+                    <input matInput  required placeholder="description..." name="description" formControlName="description" >
+                   </mat-form-field></div>
+                
+
+
+                    <div >
+                        <mat-form-field class="a">
+                        <mat-label class="b">Name</mat-label>
+                        <input matInput  placeholder="...." formControlName="name">
+                       </mat-form-field></div>
+                    
+<div class="row">
+    
+    <div class="col-sm-6" >
+        <mat-form-field class="a">
+        <mat-label class="b">Day Charge</mat-label>
+        <input matInput  placeholder="...." formControlName="dayCharge" >
+       </mat-form-field></div>
+    
+
+        <div  class="col-sm-6">
+            <mat-form-field class="a">
+            <mat-label class="b">Night Charge</mat-label>
+            <input matInput   placeholder="...." formControlName="nightCharge" >
+           </mat-form-field></div>
+</div>
+                            
+
+
+                                <div >
+                                    <mat-form-field >
+                                    <mat-label class="b">Tax</mat-label>
+                                    <input matInput  placeholder="...." formControlName="tax">
+                                   </mat-form-field></div>
+                                <div>
+    <button mat-raised-button color="primary"  >Submit</button>
+</div>
