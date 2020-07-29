@@ -4,7 +4,6 @@
       <span>Readyassist</span>
     </mat-toolbar>
   </p>
-  
   <form class="container"  [formGroup]="client" (ngSubmit)=onSubmit(client.value)>
     <div class="jumpotron">
         <mat-form-field class="a">
@@ -13,6 +12,5 @@
        </mat-form-field>
     <div>
         <div>
-            <button mat-raised-button  color="primary"  >Submit</button>
+            <button mat-raised-button [disabled]="!client.valid"  color="primary"  >Submit</button>
         </div>
-        
