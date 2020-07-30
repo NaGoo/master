@@ -1,17 +1,42 @@
 import { Component } from '@angular/core';
 import {  FormControl,FormGroup,Validators } from '@angular/forms';
 import { HttpClientModule, HttpClient,HttpHeaders } from '@angular/common/http';
+import { stringify } from 'querystring';
+interface service {
+  value: string;
+  viewValue: string;
+}
 @Component({
   selector: 'app-service',
   templateUrl: './service.component.html',
   styleUrls: ['./service.component.css']
 })
 export class ServiceComponent {
+  categories: service[] = [
+    {value: 'ON_SPOT_REPAIRS', viewValue: 'ON_SPOT_REPAIRS'}, 
+    {value: 'TOWING', viewValue: 'TOWING'},
+    {value: 'RSA', viewValue: 'RSA'},
+    {value: 'GS', viewValue: 'GS'},
+    {value: 'INSPECTION', viewValue: 'INSPECTION'}
+  ];
+ codes: service[] = [
+    {value: 'FLAT_TYRE', viewValue: 'FLAT_TYRE'}, 
+    {value: 'ZERO_DEGREE_TOWING', viewValue: 'ZERO_DEGREE_TOWING'},
+    {value: 'LIFT_TOWING', viewValue: 'LIFT_TOWING'},
+    {value: 'FTE_TUBE', viewValue: 'FTE_TUBE'},
+    {value: 'FTE_TUBELESS', viewValue: 'INSPECTION'}
+  ];
+  leadtime: service[] = [
+    {value: '30', viewValue: '30'}, 
+  ];
+  intervaltime: service[] = [
+    {value: '30', viewValue: '30'}, 
+  ];
   constructor( private http: HttpClient  ){
   }
     service=new FormGroup({
-    category : new FormControl('',Validators.required),
-    serviceCode : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
+    category:new FormControl('',Validators.required),
+    serviceCode : new FormControl('',Validators.required),
     clientId : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
     locationId : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
     vehicleId : new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
@@ -35,10 +60,23 @@ export class ServiceComponent {
     headers: new HttpHeaders(header), 
   };
       this.service.reset();
-      this.http.post ('http://localhost:3000/api/service-masters', e,request)
+      var array:any=JSON.stringify({"category":String(e.category),
+      "serviceCode":String(e.serviceCode),
+      "clientId":Number(e.clientId),
+      "locationId":Number(e.locationId),
+      "vehicleId":Number(e.vehicleId),
+      "description":String(e.description),
+      "leadTime":Number(e.leadTime),
+      "intervalTime":Number(e.intervalTime),
+      "tax":Number(e.tax),
+      "name":String(e.name),
+      "dayCharge":Number(e.dayCharge),
+      "nightCharge":Number(e.nightCharge),
+      "displayToCustomer":Boolean(e.displayToCustomer)})
+      console.log(array);
+      this.http.post ('http://localhost:3000/api/service-masters', array,request)
       .subscribe((result)=>{
         console.log(result);
-      console.log(e);
       })
     }
  get category(){return this.service.get('category')}
