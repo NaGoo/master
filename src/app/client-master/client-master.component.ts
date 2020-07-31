@@ -13,7 +13,7 @@ export class ClientMasterComponent  {
   constructor( private http: HttpClient  ){
   }
  client=new FormGroup({
-  name:new FormControl('',Validators.required)
+  name:new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z]*")
 })
 onSubmit(e)
   {
