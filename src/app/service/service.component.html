@@ -4,100 +4,126 @@
       <span>Readyassist</span>
     </mat-toolbar>
   </p>
-  
-  <form class="container"  [formGroup]="service" (ngSubmit)=onSubmit(service.value)>
-    <div >
-        <mat-form-field class="a">
-        <mat-label class="b">Service Category</mat-label>
-        <input matInput required placeholder="...." formControlName="category">
-       </mat-form-field></div>
-    <div>
-
-        <div >
-            <mat-form-field class="a">
-            <mat-label class="b">Service Code</mat-label>
-            <input matInput required placeholder="...."formControlName="serviceCode" >
-           </mat-form-field></div>
-        <div>
-
-            <div class="row" >
-                <div class="col-sm-4">
-                    <mat-form-field class="a">
-                    <mat-label class="b">ClientID</mat-label>
-                    <input matInput required placeholder="...."formControlName="clientId">
-                   </mat-form-field></div>
-                
-                    <div class="col-sm-4" >
-                    <mat-form-field class="a">
-                    <mat-label class="b">LocationId</mat-label>
-                    <input matInput required placeholder="...."formControlName="locationId" >
-                   </mat-form-field></div>
-                
-                    <div class="col-sm-4" >
-                    <mat-form-field class="a">
-                    <mat-label class="b">VahicleId</mat-label>
-                    <input matInput required placeholder="...." formControlName="vehicleId">
-                   </mat-form-field></div>
-                
-            </div>
-
-            <div class="row">
-                <div  class="col-sm-6">
-                    <mat-form-field class="a">
-                    <mat-label class="b">Lead Time</mat-label>
-                    <input  type="time"  matInput required placeholder="...." formControlName="leadTime">
-                   </mat-form-field>
-                </div>
-                   <div class="col-sm-6" >
-                    <mat-form-field class="a">
-                    <mat-label class="b">Interval Time</mat-label>
-                    <input type="time" matInput required placeholder="...." formControlName="intervalTime">
-                   </mat-form-field>
-                </div>
-            </div>
-                <div >
-                    <mat-form-field class="a">
-                    <mat-label class="b">Description</mat-label>
-                    <input matInput  required placeholder="description..." name="description" formControlName="description" >
-                   </mat-form-field></div>
-                
-
-
-                    <div >
-                        <mat-form-field class="a">
-                        <mat-label class="b">Name</mat-label>
-                        <input matInput required placeholder="...." formControlName="name">
-                       </mat-form-field></div>
-                    
-<div class="row">
-    
+  <form class="container"  [formGroup]="service" >
+   <div>
+    <!-- <mat-form-field>
+      <input type="text" matInput [matAutocomplete]="auto" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let service of categories" [value]="service.value">
+          {{service.viewValue}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field> -->
+    <mat-form-field appearance="fill" class="a">
+    <mat-label class="b">Service Category</mat-label>
+    <!-- <mat-select formControlName="category"> -->
+      <!-- <mat-option *ngFor="let service of categories" [value]="service.value">
+        {{service.viewValue}}
+      </mat-option>
+    </mat-select> -->      <input type="text" formControlName="category" matInput [matAutocomplete]="auto" />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let service of categories" [value]="service.value">
+        {{service.viewValue}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field></div>
+  <div><mat-form-field appearance="fill" class="a">
+    <mat-label class="b">Service Code</mat-label>
+    <mat-select formControlName="serviceCode">
+      <mat-option *ngFor="let service of codes"  [value]="service.value">
+        {{service.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field></div>
+  <div class="row" >
+    <div class="col-sm-4">
+      <mat-form-field class="a">
+        <mat-label class="b">ClientID</mat-label>
+        <mat-select required formControlName="clientId">
+          <mat-option *ngFor="let a of client"  [value]="a.id">
+            {{a.name}}
+          </mat-option>
+        </mat-select>                   
+      </mat-form-field>
+    </div>
+    <div class="col-sm-4" >
+      <mat-form-field class="a">
+        <mat-label class="b">LocationId</mat-label>
+        <mat-select required formControlName="locationId">
+          <mat-option *ngFor="let b of location"  [value]="b.id">
+            {{b.name}}
+           </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-4" >
+      <mat-form-field class="a">
+        <mat-label class="b">VahicleId</mat-label>
+        <mat-select required formControlName="vehicleId">
+          <mat-option *ngFor="let c of vehicle"  [value]="c.id">
+            {{c.make}}--{{c.model}}  
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div  class="col-sm-6">
+      <mat-form-field appearance="fill" class="a">
+        <mat-label class="b">Lead Time</mat-label>
+        <mat-select formControlName="leadTime">
+          <mat-option *ngFor="let service of leadtime"  [value]="service.value">
+             {{service.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
     <div class="col-sm-6" >
-        <mat-form-field class="a">
-        <mat-label class="b">Day Charge</mat-label>
-        <input matInput required placeholder="...." formControlName="dayCharge" >
-       </mat-form-field></div>
-    
-
-        <div  class="col-sm-6">
-            <mat-form-field class="a">
-            <mat-label class="b">Night Charge</mat-label>
-            <input matInput required  placeholder="...." formControlName="nightCharge" >
-           </mat-form-field></div>
+      <mat-form-field appearance="fill" class="a">
+        <mat-label class="b">Interval Time</mat-label>
+        <mat-select formControlName="intervalTime">
+          <mat-option *ngFor="let service of intervaltime"  [value]="service.value">
+            {{service.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div>
+    <mat-form-field class="a">
+      <mat-label class="b">Description</mat-label>
+      <input matInput  required  placeholder="description..." autocomplete="off" name="description" formControlName="description" >
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="a">
+      <mat-label class="b">Name</mat-label>
+      <input matInput required placeholder="...." autocomplete="off" formControlName="name">
+    </mat-form-field></div>
+<div class="row">
+  <div class="col-sm-6">
+    <mat-form-field class="a" >
+      <mat-label class="b"  value ="1">Day Charge</mat-label>
+      <input matInput placeholder="...." autocomplete="off" formControlName="dayCharge" >
+    </mat-form-field>
+  </div>
+  <div  class="col-sm-6">
+    <mat-form-field class="a">
+      <mat-label class="b"  value ="1">Night Charge</mat-label>
+      <input matInput   placeholder="...."  autocomplete="off" formControlName="nightCharge" >
+    </mat-form-field>
+  </div>
 </div>
-                            
-
-
-                                <div >
-                                    <mat-form-field >
-                                    <mat-label class="b">Tax</mat-label>
-                                    <input matInput required placeholder="...." formControlName="tax">
-                                   </mat-form-field>
-                                </div>
-                                <div>
-                                    <section class="">
-                                        <mat-checkbox required  formControlName="displayToCustomer">Display to Customer</mat-checkbox>
-                                    </section>
-                                </div>
- <div>
-    <button mat-raised-button [disabled]="!service.valid" color="primary"  >Submit</button>
+<div>
+  <mat-form-field >
+    <mat-label class="b">Tax</mat-label>
+    <input matInput  placeholder="...." autocomplete="off" formControlName="tax">
+  </mat-form-field></div>
+<div>
+<div>
+  <section>
+    <mat-checkbox required  formControlName="displayToCustomer">Display to Customer</mat-checkbox>
+  </section>
+</div>
+    <button mat-raised-button [disabled]="!service.valid" (click)=onSubmit(service.value) color="primary"  >Submit</button>
 </div>
