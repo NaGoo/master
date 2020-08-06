@@ -4,27 +4,32 @@ import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select'; 
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatInputModule} from '@angular/material/input'; 
 import { AppComponent }      from './app.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceComponent } from './service/service.component';
 import { ClientMasterComponent } from './client-master/client-master.component';
+import { ToastrModule } from 'ngx-toastr';
 // import { ClientMasterComponent } from './client-master/client-master.component';
 @NgModule({
   imports: [
-    BrowserModule,MatToolbarModule,MatSelectModule,HttpClientModule,
+    BrowserModule,MatToolbarModule,MatSelectModule,HttpClientModule,NgxMatSelectSearchModule,
     FormsModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,MatButtonModule,MatInputModule,MatCheckboxModule
+    BrowserAnimationsModule,MatSnackBarModule,MatAutocompleteModule,MatIconModule,
+    ReactiveFormsModule,MatButtonModule,MatInputModule,MatCheckboxModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     AppComponent,
     ServiceComponent,
     ClientMasterComponent,
-    // ClientMasterComponent,
   ],
   providers: [],
   bootstrap: [ AppComponent ]
