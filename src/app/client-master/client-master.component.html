@@ -1,16 +1,35 @@
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-<p>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet"> 
+<form class="container" [formGroup]="client">
+  <p>
     <mat-toolbar class="c" >
       <span>Readyassist</span>
-    </mat-toolbar>
+    </mat-toolbar>   
   </p>
-  <form class="container"  [formGroup]="client" >
-    <div class="jumpotron">
-        <mat-form-field class="a">
-        <mat-label class="b">Name</mat-label>
-        <input matInput required placeholder="Enter your Name..." formControlName="name">
-       </mat-form-field>
-    <div>
-        <div>
-            <button mat-raised-button [disabled]="!client.valid" (click)=onSubmit(client.value) color="primary"  >Submit</button>
-        </div>
+      <div *ngIf="isCreated"  class="success" role="alert">
+        <strong>Successfully!</strong>  submitted....
+      </div>
+      <div *ngIf="isExist" class="error" role="alert">
+        <strong>Sorry :(</strong> name already Exist...
+      </div>
+  <div class="jumpotron">
+    <mat-form-field class="a">
+      <mat-label class="b">Name</mat-label>
+      <input matInput   placeholder="Enter your Name..." autocomplete="off" formControlName="name" >
+    </mat-form-field>
+  </div>   
+  <div class="text-center">
+    <button  mat-raised-button [disabled]="!client.valid" (click)="onSubmit(client.value)" color="primary">Submit</button>
+  </div>
+</form> 
+<div class="content">
+  <table class = "table table-hover">
+         <th>Name</th>
+      <tr *ngFor ="let client of lists">
+          <td>{{client.name }}</td>
+          <td>
+          <button mat-mini-fab color="warn" (click)="onDelete(client.id)" aria-label="Example icon button with a delete icon">
+            <mat-icon>delete</mat-icon>
+          </button></td>
+      </tr>
+  </table>
+</div>
