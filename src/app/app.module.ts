@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select'; 
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import {MatButtonModule} from '@angular/material/button'; 
@@ -20,10 +21,21 @@ import { ToastrModule } from 'ngx-toastr';
 // import { ClientMasterComponent } from './client-master/client-master.component';
 @NgModule({
   imports: [
-    BrowserModule,MatToolbarModule,MatSelectModule,HttpClientModule,NgxMatSelectSearchModule,
+    BrowserModule,
+    MatToolbarModule,
+    MatSelectModule,
+    HttpClientModule,
+    NgxMatSelectSearchModule,
     FormsModule,
-    BrowserAnimationsModule,MatSnackBarModule,MatAutocompleteModule,MatIconModule,
-    ReactiveFormsModule,MatButtonModule,MatInputModule,MatCheckboxModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+    MatAutocompleteModule,
+    MatIconModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCheckboxModule,
     ToastrModule.forRoot()
   ],
   declarations: [
