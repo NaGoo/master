@@ -8,7 +8,9 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
+import {NgxPaginationModule} from 'ngx-pagination'
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatInputModule} from '@angular/material/input'; 
@@ -21,7 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
 // import { ClientMasterComponent } from './client-master/client-master.component';
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule,MatPaginatorModule,
     MatToolbarModule,
     MatSelectModule,
     HttpClientModule,
@@ -36,6 +38,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatButtonModule,
     MatInputModule,
     MatCheckboxModule,
+    NgxPaginationModule,
     ToastrModule.forRoot()
   ],
   declarations: [
